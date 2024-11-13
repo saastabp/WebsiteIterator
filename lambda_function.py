@@ -7,10 +7,10 @@ import logging
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+# Initialize the DynamoDB client
+dynamodb = boto3.resource('dynamodb')
 
 def lambda_handler(event, context):
-    # Initialize the DynamoDB client
-    dynamodb = boto3.resource('dynamodb')
     tbl_name = os.environ['TABLE_NAME']
     websites_tbl = dynamodb.Table(tbl_name)
 
